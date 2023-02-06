@@ -9,6 +9,8 @@ const sumaRouter = require("./routes/suma")
 const numeroRouter = require("./routes/numero")
 const listadecomprasRouter = require("./routes/listadecompras")
 const saludoRouter = require("./routes/saludo")
+const farmaciacity = require("./routes/farmaciacity")
+const  {connect} = require("./db/db")
 app.use(logger("dev"));
 app.use(express.json())
 app.use(cors())
@@ -43,5 +45,11 @@ app.use("/listadecompras", listadecomprasRouter)
 app.use('/saludo', saludoRouter)
 /*---------------------------------*/
 
+/* Lista de compras */
+
+app.use("/farmacity", farmaciacity)
+/*---------------------------------*/
+
+connect();
 module.exports = app
 

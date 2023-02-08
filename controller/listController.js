@@ -1,4 +1,7 @@
-const listadecomprasController =  (req, res) =>{
+
+
+module.exports = {
+  listadecomprasController (req, res) {
 
     res.status(200).json({
       item1: req.query.item1,
@@ -8,5 +11,4 @@ const listadecomprasController =  (req, res) =>{
       item5: req.query.item5,
     })
   }
-
-module.exports = {listadecomprasController}
+}

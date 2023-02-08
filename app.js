@@ -3,14 +3,11 @@ const logger = require("morgan")
 const cors = require("cors")
 const app = express();
 
-const nombreyApellidoRouter = require("./routes/nombreyapellido")
-const dividirRouter = require("./routes/dividir")
-const sumaRouter = require("./routes/suma")
-const numeroRouter = require("./routes/numero")
-const listadecomprasRouter = require("./routes/listadecompras")
+
+const usersRouter = require("./routes/users")
+const mathsRouter = require("./routes/maths")
+const listRouter = require("./routes/list")
 const saludoRouter = require("./routes/saludo")
-const farmaciacity = require("./routes/farmaciacity")
-const  {connect} = require("./db/db")
 app.use(logger("dev"));
 app.use(express.json())
 app.use(cors())
@@ -18,38 +15,27 @@ app.use(cors())
 
 
 /* NOMBRE Y APELLIDO */
-app.use("/user", nombreyApellidoRouter);
+app.use("/users", usersRouter);
 /*---------------------------------*/
 
 
 
-/* Division */
-app.use("/dividir", dividirRouter)
+/* Maths */
+app.use("/maths", mathsRouter)
 /*---------------------------------*/
 
-/* Sumar */
-app.use("/sumar", sumaRouter);
 
-/*---------------------------------*/
 
-/* Numero par e impar */
-
-app.use("/numero", numeroRouter)
-
-/*---------------------------------*/
 
 /* Lista de compras */
 
-app.use("/listadecompras", listadecomprasRouter)
+app.use("/list", listRouter)
+/*---------------------------------*/
 
+
+/* saludo http post */
 app.use('/saludo', saludoRouter)
 /*---------------------------------*/
 
-/* Lista de compras */
-
-app.use("/farmacity", farmaciacity)
-/*---------------------------------*/
-
-connect();
 module.exports = app
 
